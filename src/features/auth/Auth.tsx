@@ -7,23 +7,23 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { TextField, Button, CircularProgress } from "@material-ui/core";
 
-// import { fetchAsyncGetPosts, fetchAsyncGetComments } from "../post/postSlice";
+import { fetchAsyncGetPosts } from "../post/postSlice";
 
 import {
-  // useSelecter
   selectIsLoadingAuth,
   selectOpenSignIn,
   selectOpenSignUp,
-  // Reducer
   setOpenSignIn,
   resetOpenSignIn,
   setOpenSignUp,
   resetOpenSignUp,
-  // 非同期関数
   fetchCredStart,
   fetchCredEnd,
   fetchAsyncLogin,
   fetchAsyncRegister,
+  fetchAsyncGetMyProf,
+  fetchAsyncGetProfs,
+  fetchAsyncCreateProf,
 } from "./authSlice";
 
 const customStyles = {
@@ -67,7 +67,11 @@ const Auth: React.FC = () => {
 
             if (fetchAsyncRegister.fulfilled.match(resultReg)) {
               await dispatch(fetchAsyncLogin(values));
-              //   await dispatch(fetchAsyncGetPosts());
+              await dispatch(fetchAsyncCreateProf({ nickName: "anonymous" }));
+
+              await dispatch(fetchAsyncGetProfs());
+              await dispatch(fetchAsyncGetPosts());
+              await dispatch(fetchAsyncGetMyProf());
             }
             await dispatch(fetchCredEnd());
             await dispatch(resetOpenSignUp());
@@ -91,7 +95,7 @@ const Auth: React.FC = () => {
             <div>
               <form onSubmit={handleSubmit}>
                 <div className={styles.auth_signUp}>
-                  <h1 className={styles.auth_title}>TaskLog</h1>
+                  <h1 className={styles.auth_title}>Task Log</h1>
                   <br />
                   <div className={styles.auth_progress}>
                     {isLoadingAuth && <CircularProgress />}
@@ -165,7 +169,9 @@ const Auth: React.FC = () => {
             await dispatch(fetchCredStart());
             const result = await dispatch(fetchAsyncLogin(values));
             if (fetchAsyncLogin.fulfilled.match(result)) {
-              //   await dispatch(fetchAsyncGetPosts());
+              await dispatch(fetchAsyncGetProfs());
+              await dispatch(fetchAsyncGetPosts());
+              await dispatch(fetchAsyncGetMyProf());
             }
             await dispatch(fetchCredEnd());
             await dispatch(resetOpenSignIn());
@@ -189,7 +195,7 @@ const Auth: React.FC = () => {
             <div>
               <form onSubmit={handleSubmit}>
                 <div className={styles.auth_signUp}>
-                  <h1 className={styles.auth_title}>TaskLog</h1>
+                  <h1 className={styles.auth_title}>Task Log</h1>
                   <br />
                   <div className={styles.auth_progress}>
                     {isLoadingAuth && <CircularProgress />}

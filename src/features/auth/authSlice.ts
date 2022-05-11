@@ -6,7 +6,7 @@ import { PROPS_AUTHEN } from "../types";
 const apiUrl = process.env.REACT_APP_DEV_API_URL;
 
 export const fetchAsyncLogin = createAsyncThunk(
-  "auth/post",
+  "auth/login",
   async (authen: PROPS_AUTHEN) => {
     const res = await axios.post(`${apiUrl}authen/jwt/create`, authen, {
       headers: {
@@ -19,8 +19,8 @@ export const fetchAsyncLogin = createAsyncThunk(
 
 export const fetchAsyncRegister = createAsyncThunk(
   "auth/register",
-  async (auth: PROPS_AUTHEN) => {
-    const res = await axios.post(`${apiUrl}api/register/`, auth, {
+  async (authen: PROPS_AUTHEN) => {
+    const res = await axios.post(`${apiUrl}api/register/`, authen, {
       headers: {
         "Content-Type": "application/json",
       },

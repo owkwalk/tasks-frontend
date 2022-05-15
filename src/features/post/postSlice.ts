@@ -27,6 +27,26 @@ export const fetchAsyncNewPost = createAsyncThunk(
   }
 );
 
+// export const fetchAsyncUpdate = createAsyncThunk("post/put", async (task) => {
+//   const res = await axios.put(`${apiUrlPost}${task.id}/`, task, {
+//     headers: {
+//       "Content-Type": "application/json",
+//       Authorization: `JWT ${localStorage.localJWT}`,
+//     },
+//   });
+//   return res.data;
+// });
+
+export const fetchAsyncDelete = createAsyncThunk("post/delete", async (id: String) => {
+  await axios.delete(`${apiUrlPost}${id}/`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `JWT ${localStorage.localJWT}`,
+    },
+  });
+  return id;
+});
+
 export const postSlice = createSlice({
   name: "post",
   initialState: {
@@ -67,6 +87,12 @@ export const postSlice = createSlice({
       return {
         ...state,
         posts: [...state.posts, action.payload],
+      };
+    });
+    builder.addCase(fetchAsyncDelete.fulfilled, (state, action) => {
+      return {
+        ...state,
+        posts: state.posts.filter((post) => String(post.id) !== action.payload)
       };
     });
   },

@@ -13,7 +13,7 @@ yarnがインストールされたか、確認する。
 git cloneした後、「task-frontend」フォルダ内に入り、パッケージをインストールする。
 
 ```
-% yarn
+% cd tasks-frontend; yarn
 ```
 
 ローカルサーバーを起動する。
@@ -22,7 +22,7 @@ git cloneした後、「task-frontend」フォルダ内に入り、パッケー�
 % yarn start
 ```
 
-サイトをブラウザ表示する。
+サイトが自動でブラウザ表示される。
 
 ```
 http://localhost:3000

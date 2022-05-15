@@ -95,12 +95,11 @@ const Auth: React.FC = () => {
             <div>
               <form onSubmit={handleSubmit}>
                 <div className={styles.auth_signUp}>
-                  <h1 className={styles.auth_title}>Task Log</h1>
-                  <br />
+                  {/* <h1 className={styles.auth_title}>Task Log</h1> */}
+
                   <div className={styles.auth_progress}>
                     {isLoadingAuth && <CircularProgress />}
                   </div>
-                  <br />
 
                   <TextField
                     placeholder="email"
@@ -110,7 +109,7 @@ const Auth: React.FC = () => {
                     onBlur={handleBlur}
                     value={values.email}
                   />
-                  <br />
+
                   {touched.email && errors.email ? (
                     <div className={styles.auth_error}>{errors.email}</div>
                   ) : null}
@@ -123,11 +122,10 @@ const Auth: React.FC = () => {
                     onBlur={handleBlur}
                     value={values.password}
                   />
+
                   {touched.password && errors.password ? (
                     <div className={styles.auth_error}>{errors.password}</div>
                   ) : null}
-                  <br />
-                  <br />
 
                   <Button
                     variant="contained"
@@ -137,8 +135,7 @@ const Auth: React.FC = () => {
                   >
                     Register
                   </Button>
-                  <br />
-                  <br />
+
                   <span
                     className={styles.auth_text}
                     onClick={async () => {
@@ -195,7 +192,7 @@ const Auth: React.FC = () => {
             <div>
               <form onSubmit={handleSubmit}>
                 <div className={styles.auth_signUp}>
-                  <h1 className={styles.auth_title}>Task Log</h1>
+                  {/* <h1 className={styles.auth_title}>Task Log</h1> */}
                   <br />
                   <div className={styles.auth_progress}>
                     {isLoadingAuth && <CircularProgress />}

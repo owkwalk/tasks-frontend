@@ -55,7 +55,7 @@ const EditProfile: React.FC = () => {
         style={customStyles}
       >
         <form className={styles.core_signUp}>
-          <h1 className={styles.core_title}>Task Log</h1>
+          <h1 className={styles.core_title}>Change your nickname</h1>
 
           <br />
           <TextField
@@ -66,6 +66,8 @@ const EditProfile: React.FC = () => {
           />
 
           <br />
+          <br />
+
           <Button
             disabled={!profile?.nickName}
             variant="contained"

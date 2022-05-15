@@ -1,5 +1,5 @@
 .core_title {
-  font-family: "Playball", cursive;
+  font-family: "Roboto";
   font-weight: normal;
   text-align: center;
 }
@@ -28,7 +28,7 @@
   background-color: transparent;
   color: gray;
   padding-top: 3px;
-  /* font-size: 32px; */
+  font-size: 32px;
   font-size: 18px;
   border: none;
   outline: none;

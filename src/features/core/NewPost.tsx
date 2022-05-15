@@ -57,7 +57,7 @@ const NewPost: React.FC = () => {
         style={customStyles}
       >
         <form className={styles.core_signUp}>
-          <h1 className={styles.core_title}>Task Log</h1>
+          <h1 className={styles.core_title}>Create new task</h1>
 
           <br />
           <TextField

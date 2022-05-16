@@ -32,20 +32,19 @@ const Post: React.FC<PROPS_POST> = ({ postId, userPost, title, content }) => {
       <div className={styles.post}>
         <div className={styles.post_header}>
           <h3>{profs[0]?.nickName}</h3>
-          {(userPost == profile.userProfile) ?
-        (<button
-          onClick={() => dispatch(fetchAsyncDelete(String(postId)))}
-          // className={}
-        >
-          <BsTrash />
-        </button>) : (<div></div>)}
         </div>
 
         <h4 className={styles.post_text}>
           <strong>{title}</strong>
           <br />
-          {/* {content} */}
+          {content}
         </h4>
+        {(userPost == profile.userProfile) ?
+          (<button
+            onClick={() => dispatch(fetchAsyncDelete(String(postId)))}
+          >
+            <BsTrash />
+          </button>) : (<div></div>)}
       </div>
     );
   }

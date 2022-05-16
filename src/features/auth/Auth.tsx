@@ -35,7 +35,7 @@ const customStyles = {
     left: "50%",
 
     width: 280,
-    height: 350,
+    height: 400,
     padding: "50px",
 
     transform: "translate(-50%, -50%)",
@@ -95,13 +95,13 @@ const Auth: React.FC = () => {
             <div>
               <form onSubmit={handleSubmit}>
                 <div className={styles.auth_signUp}>
-                  {/* <h1 className={styles.auth_title}>Task Log</h1> */}
 
                   <div className={styles.auth_progress}>
                     {isLoadingAuth && <CircularProgress />}
                   </div>
 
-                  <TextField
+                  <input
+                    className="my-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     placeholder="email"
                     type="input"
                     name="email"
@@ -114,7 +114,8 @@ const Auth: React.FC = () => {
                     <div className={styles.auth_error}>{errors.email}</div>
                   ) : null}
 
-                  <TextField
+                  <input
+                    className="my-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     placeholder="password"
                     type="password"
                     name="password"
@@ -126,7 +127,8 @@ const Auth: React.FC = () => {
                   {touched.password && errors.password ? (
                     <div className={styles.auth_error}>{errors.password}</div>
                   ) : null}
-
+                  <br />
+                  <br />
                   <Button
                     variant="contained"
                     color="primary"
@@ -135,9 +137,10 @@ const Auth: React.FC = () => {
                   >
                     Register
                   </Button>
-
+                  <br />
+                  <br />
                   <span
-                    className={styles.auth_text}
+                    className="cursor-pointer"
                     onClick={async () => {
                       await dispatch(setOpenSignIn());
                       await dispatch(resetOpenSignUp());
@@ -192,14 +195,13 @@ const Auth: React.FC = () => {
             <div>
               <form onSubmit={handleSubmit}>
                 <div className={styles.auth_signUp}>
-                  {/* <h1 className={styles.auth_title}>Task Log</h1> */}
-                  <br />
+
                   <div className={styles.auth_progress}>
                     {isLoadingAuth && <CircularProgress />}
                   </div>
-                  <br />
 
-                  <TextField
+                  <input
+                    className="my-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     placeholder="email"
                     type="input"
                     name="email"
@@ -211,9 +213,9 @@ const Auth: React.FC = () => {
                   {touched.email && errors.email ? (
                     <div className={styles.auth_error}>{errors.email}</div>
                   ) : null}
-                  <br />
 
-                  <TextField
+                  <input
+                    className="my-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     placeholder="password"
                     type="password"
                     name="password"
@@ -237,7 +239,7 @@ const Auth: React.FC = () => {
                   <br />
                   <br />
                   <span
-                    className={styles.auth_text}
+                    className="cursor-pointer"
                     onClick={async () => {
                       await dispatch(resetOpenSignIn());
                       await dispatch(setOpenSignUp());

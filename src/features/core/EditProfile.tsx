@@ -23,7 +23,7 @@ const customStyles = {
     left: "50%",
 
     width: 280,
-    height: 220,
+    height: 400,
     padding: "50px",
 
     transform: "translate(-50%, -50%)",
@@ -58,7 +58,8 @@ const EditProfile: React.FC = () => {
           <h1 className={styles.core_title}>Change your nickname</h1>
 
           <br />
-          <TextField
+          <input
+            className="my-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="nickname"
             type="text"
             value={profile?.nickName}

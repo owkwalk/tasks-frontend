@@ -64,7 +64,7 @@ const Core: React.FC = () => {
       <EditProfile />
       <NewPost />
       <div className={styles.core_header}>
-        <h1 className={styles.core_title}>Task Log</h1>
+        <h1 className="text-4xl">Task Log</h1>
         {profile?.nickName ? (
           <>
             <button
@@ -130,7 +130,7 @@ const Core: React.FC = () => {
                 .slice(0)
                 .reverse()
                 .map((post) => (
-                  <Grid key={post.id} item xs={12} md={4}>
+                  <div key={post.id}>
                     <Post
                       postId={post.id}
                       title={post.title}
@@ -138,7 +138,7 @@ const Core: React.FC = () => {
                       userPost={post.userPost}
                       content={post.content}
                     />
-                  </Grid>
+                  </div>
                 ))}
             </Grid>
           </div>

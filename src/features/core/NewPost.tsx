@@ -22,7 +22,7 @@ const customStyles = {
     left: "50%",
 
     width: 280,
-    height: 220,
+    height: 400,
     padding: "50px",
 
     transform: "translate(-50%, -50%)",
@@ -60,18 +60,22 @@ const NewPost: React.FC = () => {
           <h1 className={styles.core_title}>Create new task</h1>
 
           <br />
-          <TextField
-            placeholder="Please enter title"
+          <input
+            className="my-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="title"
             type="text"
             onChange={(e) => setTitle(e.target.value)}
           />
-          <TextField
-            placeholder="Please enter content"
+          <input
+            className="my-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="content"
             type="text"
             onChange={(e) => setContent(e.target.value)}
           />
 
           <br />
+          <br />
+
           <Button
             disabled={!title || !content}
             variant="contained"

@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import Auth from "../auth/Auth";
 
-import styles from "./Core.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch } from "../../app/store";
 
-import { Button, Grid, CircularProgress } from "@material-ui/core";
+import { Button, CircularProgress } from "@material-ui/core";
 
 import { GrAdd } from "react-icons/gr";
 
@@ -63,12 +62,11 @@ const Core: React.FC = () => {
       <Auth />
       <EditProfile />
       <NewPost />
-      <div className={styles.core_header}>
-        <h1 className={styles.core_title}>Task Log</h1>
+      <div>
+        <h1 className="text-4xl">Task Log</h1>
         {profile?.nickName ? (
           <>
             <button
-              className={styles.core_btnModal}
               onClick={() => {
                 dispatch(setOpenNewPost());
                 dispatch(resetOpenProfile());
@@ -76,7 +74,7 @@ const Core: React.FC = () => {
             >
               <GrAdd />
             </button>
-            <div className={styles.core_logout}>
+            <div>
               {(isLoadingPost || isLoadingAuth) && <CircularProgress />}
               <Button
                 onClick={() => {
@@ -90,7 +88,6 @@ const Core: React.FC = () => {
                 Logout
               </Button>
               <button
-                className={styles.core_btnModal}
                 onClick={() => {
                   dispatch(setOpenProfile());
                   dispatch(resetOpenNewPost());
@@ -123,26 +120,39 @@ const Core: React.FC = () => {
       </div>
 
       {profile?.nickName && (
-        <>
-          <div className={styles.core_posts}>
-            <Grid container spacing={4}>
-              {posts
-                .slice(0)
-                .reverse()
-                .map((post) => (
-                  <Grid key={post.id} item xs={12} md={4}>
-                    <Post
-                      postId={post.id}
-                      title={post.title}
-                      loginId={profile.userProfile}
-                      userPost={post.userPost}
-                      content={post.content}
-                    />
-                  </Grid>
-                ))}
-            </Grid>
-          </div>
-        </>
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            {/* <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" className="px-6 py-3">
+                        Name
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                        Title
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                        Content
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                    </th>
+                </tr>
+            </thead> */}
+            {posts
+              .map((post) => (
+                <div key={post.id}>
+                  <Post
+                    postId={post.id}
+                    title={post.title}
+                    loginId={profile.userProfile}
+                    userPost={post.userPost}
+                    content={post.content}
+                  />
+                </div>
+              )
+            )}
+          </table>
+        </div>
+
       )}
     </div>
   );

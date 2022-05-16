@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Post.module.css";
+// import styles from "./Post.module.css";
 
 import { useSelector } from "react-redux";
 
@@ -29,24 +29,46 @@ const Post: React.FC<PROPS_POST> = ({ postId, userPost, title, content }) => {
 
   if (title) {
     return (
-      <div className={styles.post}>
-        <div className={styles.post_header}>
-          <h3>{profs[0]?.nickName}</h3>
-          {(userPost == profile.userProfile) ?
-        (<button
-          onClick={() => dispatch(fetchAsyncDelete(String(postId)))}
-          // className={}
-        >
-          <BsTrash />
-        </button>) : (<div></div>)}
-        </div>
-
-        <h4 className={styles.post_text}>
-          <strong>{title}</strong>
-          <br />
-          {/* {content} */}
-        </h4>
-      </div>
+      // <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      //   <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      //     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      //         <tr>
+      //             <th scope="col" className="px-6 py-3">
+      //                 Name
+      //             </th>
+      //             <th scope="col" className="px-6 py-3">
+      //                 Title
+      //             </th>
+      //             <th scope="col" className="px-6 py-3">
+      //                 Content
+      //             </th>
+      //             <th scope="col" className="px-6 py-3">
+      //             </th>
+      //         </tr>
+      //     </thead>
+          <tbody>
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                  {profs[0]?.nickName}
+                </th>
+                <td className="px-6 py-4">
+                  {title}
+                </td>
+                <td className="px-6 py-4">
+                  {content}
+                </td>
+                <td className="px-6 py-4 text-right">
+                    {(userPost == profile.userProfile) ?
+                    (<button
+                      onClick={() => dispatch(fetchAsyncDelete(String(postId)))}
+                    >
+                      <BsTrash />
+                    </button>) : (<div></div>)}
+                </td>
+            </tr>
+          </tbody>
+      //   </table>
+      // </div>
     );
   }
   return null;

@@ -3,8 +3,6 @@ import Modal from "react-modal";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch } from "../../app/store";
 
-import styles from "./Core.module.css";
-
 import {
   selectOpenNewPost,
   resetOpenNewPost,
@@ -13,8 +11,7 @@ import {
   fetchAsyncNewPost,
 } from "../post/postSlice";
 
-import { Button, TextField, IconButton } from "@material-ui/core";
-import { MdAddAPhoto } from "react-icons/md";
+import { Button } from "@material-ui/core";
 
 const customStyles = {
   content: {
@@ -22,7 +19,7 @@ const customStyles = {
     left: "50%",
 
     width: 280,
-    height: 220,
+    height: 400,
     padding: "50px",
 
     transform: "translate(-50%, -50%)",
@@ -56,22 +53,26 @@ const NewPost: React.FC = () => {
         }}
         style={customStyles}
       >
-        <form className={styles.core_signUp}>
-          <h1 className={styles.core_title}>Create new task</h1>
+        <form>
+          <h1>Create new task</h1>
 
           <br />
-          <TextField
-            placeholder="Please enter title"
+          <input
+            className="my-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="title"
             type="text"
             onChange={(e) => setTitle(e.target.value)}
           />
-          <TextField
-            placeholder="Please enter content"
+          <input
+            className="my-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="content"
             type="text"
             onChange={(e) => setContent(e.target.value)}
           />
 
           <br />
+          <br />
+
           <Button
             disabled={!title || !content}
             variant="contained"

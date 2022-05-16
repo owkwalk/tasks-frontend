@@ -5,7 +5,7 @@ import Core from "./features/core/Core";
 
 function App() {
   return (
-    <div className={styles.app}>
+    <div className="container mx-auto">
       <Core />
     </div>
   );

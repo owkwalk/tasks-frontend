@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import Auth from "../auth/Auth";
 
-import styles from "./Core.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch } from "../../app/store";
 
-import { Button, Grid, CircularProgress } from "@material-ui/core";
+import { Button, CircularProgress } from "@material-ui/core";
 
 import { GrAdd } from "react-icons/gr";
 
@@ -63,12 +62,11 @@ const Core: React.FC = () => {
       <Auth />
       <EditProfile />
       <NewPost />
-      <div className={styles.core_header}>
+      <div>
         <h1 className="text-4xl">Task Log</h1>
         {profile?.nickName ? (
           <>
             <button
-              className={styles.core_btnModal}
               onClick={() => {
                 dispatch(setOpenNewPost());
                 dispatch(resetOpenProfile());
@@ -76,7 +74,7 @@ const Core: React.FC = () => {
             >
               <GrAdd />
             </button>
-            <div className={styles.core_logout}>
+            <div>
               {(isLoadingPost || isLoadingAuth) && <CircularProgress />}
               <Button
                 onClick={() => {
@@ -90,7 +88,6 @@ const Core: React.FC = () => {
                 Logout
               </Button>
               <button
-                className={styles.core_btnModal}
                 onClick={() => {
                   dispatch(setOpenProfile());
                   dispatch(resetOpenNewPost());

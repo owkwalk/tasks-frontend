@@ -1,7 +1,7 @@
 import React from "react";
 import { AppDispatch } from "../../app/store";
 import { useSelector, useDispatch } from "react-redux";
-import styles from "./Auth.module.css";
+// import styles from "./Auth.module.css";
 import Modal from "react-modal";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -94,9 +94,9 @@ const Auth: React.FC = () => {
           }) => (
             <div>
               <form onSubmit={handleSubmit}>
-                <div className={styles.auth_signUp}>
+                <div>
 
-                  <div className={styles.auth_progress}>
+                  <div>
                     {isLoadingAuth && <CircularProgress />}
                   </div>
 
@@ -111,7 +111,7 @@ const Auth: React.FC = () => {
                   />
 
                   {touched.email && errors.email ? (
-                    <div className={styles.auth_error}>{errors.email}</div>
+                    <div>{errors.email}</div>
                   ) : null}
 
                   <input
@@ -125,7 +125,7 @@ const Auth: React.FC = () => {
                   />
 
                   {touched.password && errors.password ? (
-                    <div className={styles.auth_error}>{errors.password}</div>
+                    <div>{errors.password}</div>
                   ) : null}
                   <br />
                   <br />
@@ -194,9 +194,8 @@ const Auth: React.FC = () => {
           }) => (
             <div>
               <form onSubmit={handleSubmit}>
-                <div className={styles.auth_signUp}>
-
-                  <div className={styles.auth_progress}>
+                <div>
+                  <div>
                     {isLoadingAuth && <CircularProgress />}
                   </div>
 
@@ -211,7 +210,7 @@ const Auth: React.FC = () => {
                   />
 
                   {touched.email && errors.email ? (
-                    <div className={styles.auth_error}>{errors.email}</div>
+                    <div>{errors.email}</div>
                   ) : null}
 
                   <input
@@ -224,7 +223,7 @@ const Auth: React.FC = () => {
                     value={values.password}
                   />
                   {touched.password && errors.password ? (
-                    <div className={styles.auth_error}>{errors.password}</div>
+                    <div>{errors.password}</div>
                   ) : null}
                   <br />
                   <br />

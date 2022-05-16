@@ -3,8 +3,6 @@ import Modal from "react-modal";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch } from "../../app/store";
 
-import styles from "./Core.module.css";
-
 import {
   selectOpenNewPost,
   resetOpenNewPost,
@@ -13,8 +11,7 @@ import {
   fetchAsyncNewPost,
 } from "../post/postSlice";
 
-import { Button, TextField, IconButton } from "@material-ui/core";
-import { MdAddAPhoto } from "react-icons/md";
+import { Button } from "@material-ui/core";
 
 const customStyles = {
   content: {
@@ -56,8 +53,8 @@ const NewPost: React.FC = () => {
         }}
         style={customStyles}
       >
-        <form className={styles.core_signUp}>
-          <h1 className={styles.core_title}>Create new task</h1>
+        <form>
+          <h1>Create new task</h1>
 
           <br />
           <input

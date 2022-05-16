@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "react-modal";
-import styles from "./Core.module.css";
 
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch } from "../../app/store";
@@ -15,7 +14,7 @@ import {
   fetchAsyncUpdateProf,
 } from "../auth/authSlice";
 
-import { Button, TextField, IconButton } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 const customStyles = {
   content: {
@@ -54,8 +53,8 @@ const EditProfile: React.FC = () => {
         }}
         style={customStyles}
       >
-        <form className={styles.core_signUp}>
-          <h1 className={styles.core_title}>Change your nickname</h1>
+        <form>
+          <h1>Change your nickname</h1>
 
           <br />
           <input

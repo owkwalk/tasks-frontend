@@ -123,26 +123,39 @@ const Core: React.FC = () => {
       </div>
 
       {profile?.nickName && (
-        <>
-          <div className={styles.core_posts}>
-            <Grid container spacing={4}>
-              {posts
-                .slice(0)
-                .reverse()
-                .map((post) => (
-                  <div key={post.id}>
-                    <Post
-                      postId={post.id}
-                      title={post.title}
-                      loginId={profile.userProfile}
-                      userPost={post.userPost}
-                      content={post.content}
-                    />
-                  </div>
-                ))}
-            </Grid>
-          </div>
-        </>
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            {/* <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" className="px-6 py-3">
+                        Name
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                        Title
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                        Content
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                    </th>
+                </tr>
+            </thead> */}
+            {posts
+              .map((post) => (
+                <div key={post.id}>
+                  <Post
+                    postId={post.id}
+                    title={post.title}
+                    loginId={profile.userProfile}
+                    userPost={post.userPost}
+                    content={post.content}
+                  />
+                </div>
+              )
+            )}
+          </table>
+        </div>
+
       )}
     </div>
   );
